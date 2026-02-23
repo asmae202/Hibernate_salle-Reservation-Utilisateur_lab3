@@ -1,3 +1,83 @@
+Gestion des réservations de salles
+
+## Objectifs
+
+Créer les entités Salle, Réservation, Utilisateur, Équipement.
+
+Faire une relation ManyToMany entre Salle et Équipement.
+
+Tester cascade et orphanRemoval.
+
+## Étapes
+
+## 1️/Créer le projet Maven
+
+Nouveau projet Maven (GroupId = com.example, ArtifactId = gestion-reservations).
+
+Ouvrir dans ton IDE préféré.
+
+## 2️/ Ajouter les dépendances
+
+JPA et Hibernate pour gérer la base.
+
+H2 pour une base en mémoire.
+
+JUnit pour tester.
+
+## 3️/ Configurer Hibernate
+
+Créer persistence.xml.
+
+Configurer H2 et Hibernate (create-drop pour créer la base à chaque lancement).
+
+## 4️/ Créer les entités
+
+-Utilisateur : id, nom, prenom, email
+
+A plusieurs réservations (OneToMany, cascade + orphanRemoval).
+
+-Réservation : id, dateDebut, dateFin, motif
+
+Liée à un utilisateur et une salle (ManyToOne).
+
+-Salle : id, nom, capacite, description
+
+A plusieurs réservations (OneToMany).
+
+A plusieurs équipements (ManyToMany).
+
+-Équipement : id, nom, description
+
+Lié à plusieurs salles (ManyToMany inverse).
+
+
+## 5️/ Tester les relations et cascade
+
+Persister un utilisateur avec réservation et salle.
+
+Vérifier que la réservation se crée automatiquement grâce au cascade.
+
+Supprimer une réservation d’un utilisateur pour voir orphanRemoval en action.
+
+## 6️/ Tester ManyToMany
+
+Créer des salles et équipements.
+
+Ajouter des équipements aux salles.
+
+Supprimer un équipement d’une salle et vérifier qu’il reste dans la base.
+
+## Dagramme de class:
+
+<img width="448" height="317" alt="image" src="https://github.com/user-attachments/assets/d8d9c066-d94a-4920-ab97-2eaba416f1be" />
+
+
+## 7️/ Lancer le projet
+
+Résultat:
+
+
+
 <img width="634" height="369" alt="lab2 hibernate 1 " src="https://github.com/user-attachments/assets/697d2aca-45bd-473d-b7ce-299e95ecaac4" />
 
 
